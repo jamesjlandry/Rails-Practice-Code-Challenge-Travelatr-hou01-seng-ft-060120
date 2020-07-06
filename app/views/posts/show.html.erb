@@ -1,0 +1,15 @@
+<h2><%=@post.title%></h2>
+<h5>By: <%= link_to @post.blogger.name, blogger_path(@post.blogger.id)%></h5>
+
+<h5>Destination: <%= link_to @post.destination.name, destination_path(@post.destination.id)%></h5>
+<div>
+<h4><%=@post.title%></h4>
+<br>
+<%=@post.content%>
+<br>
+<br>
+
+ <form action="/posts/<%=@post.id%>/like" method="PATCH">
+  <input type="hidden" name= "authenticity_token" value="<%=form_authenticity_token%>">
+    <input type="submit" value= "Like this post!">
+  </form>
